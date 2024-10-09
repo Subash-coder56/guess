@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            margin-bottom: 20px;
+            border: 2px solid #300bd6;
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: rgb(236, 46, 195);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Guess a number between 1 and 10</h2>
+        <input type="password" id="nameInput" placeholder="Type a number (1-10)" />
+   
+        <br />
+        <button onclick="submitName()">Guess</button>
+        <h3 id="output"></h3>
+    </div>
+
+    <script>
+        function submitName() {
+            var name = document.getElementById("nameInput").value;
+
+            // Check if the input is a valid number
+            if (isNaN(name) || name < 1 || name > 10) {
+                document.getElementById("output").innerHTML = "Please enter a valid number between 1 and 10.";
+                return;
+            }
+
+            // Set a delay of 3 seconds (3000 milliseconds)
+            setTimeout(function() {
+                document.getElementById("output").innerHTML = "Your guess is: " + name + "  !";
+            }, 3000); // Delay of 3 seconds
+        }
+    </script>
+
+</body>
+</html>
